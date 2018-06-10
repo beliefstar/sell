@@ -1,5 +1,7 @@
 package com.zhenxin.sell.dataobject;
 
+import com.zhenxin.sell.enums.OrderStatusEnum;
+import com.zhenxin.sell.enums.PayStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -10,6 +12,7 @@ import java.util.Date;
 
 /**
  * 订单主表
+ * order_master
  */
 @Data
 @Entity

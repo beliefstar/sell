@@ -42,8 +42,8 @@ public class CategoryServiceImplTest {
     @Test
     public void save() {
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryName("新分类");
-        productCategory.setCategoryType(5);
+        productCategory.setCategoryName("热榜");
+        productCategory.setCategoryType(1);
         categoryService.save(productCategory);
     }
 }

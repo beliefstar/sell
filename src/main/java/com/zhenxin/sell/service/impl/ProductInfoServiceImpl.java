@@ -1,13 +1,17 @@
 package com.zhenxin.sell.service.impl;
 
 import com.zhenxin.sell.dataobject.ProductInfo;
+import com.zhenxin.sell.dto.CartDTO;
 import com.zhenxin.sell.enums.ProductStatusEnum;
+import com.zhenxin.sell.enums.ResultEnum;
+import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.repository.ProductInfoRepository;
 import com.zhenxin.sell.service.ProductInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,5 +38,38 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     @Override
     public Page<ProductInfo> findAll(Pageable pageable) {
         return repository.findAll(pageable);
+    }
+
+    @Override
+    public void incrementStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = repository.findOne(cartDTO.getProductId());
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+
+            Integer t = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfo.setProductStock(t);
+            repository.save(productInfo);
+        }
+    }
+
+    @Transactional
+    @Override
+    public void decrementStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo one = repository.findOne(cartDTO.getProductId());
+            if (one == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+
+            Integer t = one.getProductStock() - cartDTO.getProductQuantity();
+            if (t > 0) {
+                one.setProductStock(t);
+                repository.save(one);
+            } else {
+                throw new SellException(ResultEnum.LACK_OF_STOCK);
+            }
+        }
     }
 }

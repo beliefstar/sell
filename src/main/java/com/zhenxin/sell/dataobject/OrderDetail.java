@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * 订单详情
+ * order_detail
  */
 @Data
 @Entity

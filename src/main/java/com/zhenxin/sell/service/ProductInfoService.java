@@ -1,6 +1,7 @@
 package com.zhenxin.sell.service;
 
 import com.zhenxin.sell.dataobject.ProductInfo;
+import com.zhenxin.sell.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -24,6 +25,8 @@ public interface ProductInfoService {
     Page<ProductInfo> findAll(Pageable pageable);
 
     //加库存
+    void incrementStock(List<CartDTO> cartDTOList);
 
     //减库存
+    void decrementStock(List<CartDTO> cartDTOList);
 }

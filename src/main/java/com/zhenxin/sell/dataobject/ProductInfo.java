@@ -1,5 +1,6 @@
 package com.zhenxin.sell.dataobject;
 
+import com.zhenxin.sell.enums.ProductStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 /**
  * 商品
+ * product_info
  */
 @Data
 @Entity
@@ -49,7 +51,7 @@ public class ProductInfo {
     /**
      * 商品状态，0正常 1下架
      */
-    private Integer productStatus;
+    private Integer productStatus = ProductStatusEnum.UP.getCode();
 
     /**
      * 类目编号
