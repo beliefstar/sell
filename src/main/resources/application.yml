@@ -1,0 +1,23 @@
+server:
+  port: 9010
+  context-path: /sell
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: zhenxin
+    password: 1234
+    url: jdbc:mysql:///sell?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+  jpa:
+    show-sql: true
+#
+#    5-3
+#
+# 日志配置
+# 区分 info 和 error 日志
+# 每天产生一个日志文件
+# 1
+#logging:
+#  pattern:
+#    console: "%d -- %msg%n"
+#  file: logs/sell.log
+#  level: trace

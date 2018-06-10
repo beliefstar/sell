@@ -1,0 +1,26 @@
+10:16:48.174 [ INFO] com.zhenxin.sell.LoggerTest             : Starting LoggerTest on ZHENXIN-PC with PID 9916 (started by zhenxin in D:\MyProject\springBootWeChatFood\sell)
+10:16:48.184 [ INFO] com.zhenxin.sell.LoggerTest             : No active profile set, falling back to default profiles: default
+10:16:48.344 [ INFO] o.s.w.c.s.GenericWebApplicationContext  : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6440112d: startup date [Sun Jun 10 10:16:48 CST 2018]; root of context hierarchy
+10:16:50.271 [ INFO] o.h.validator.internal.util.Version     : HV000001: Hibernate Validator 5.3.6.Final
+10:16:53.744 [ INFO] trationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ea07eed1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+10:16:57.187 [ INFO] j.LocalContainerEntityManagerFactoryBean: Building JPA container EntityManagerFactory for persistence unit 'default'
+10:16:57.266 [ INFO] o.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+10:16:57.646 [ INFO] org.hibernate.Version                   : HHH000412: Hibernate Core {5.0.12.Final}
+10:16:57.656 [ INFO] org.hibernate.cfg.Environment           : HHH000206: hibernate.properties not found
+10:16:57.656 [ INFO] org.hibernate.cfg.Environment           : HHH000021: Bytecode provider name : javassist
+10:16:57.826 [ INFO] o.hibernate.annotations.common.Version  : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+10:16:58.396 [ INFO] org.hibernate.dialect.Dialect           : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+10:17:01.478 [ INFO] j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+10:17:05.618 [ INFO] s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6440112d: startup date [Sun Jun 10 10:16:48 CST 2018]; root of context hierarchy
+10:17:05.988 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+10:17:05.988 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+10:17:06.128 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:17:06.128 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:17:06.668 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+10:17:07.918 [ INFO] com.zhenxin.sell.LoggerTest             : Started LoggerTest in 23.014 seconds (JVM running for 31.344)
+10:17:08.098 [ INFO] com.zhenxin.sell.LoggerTest             : info...
+10:17:08.098 [ WARN] com.zhenxin.sell.LoggerTest             : warn...
+10:17:08.128 [ INFO] o.s.w.c.s.GenericWebApplicationContext  : Closing org.springframework.web.context.support.GenericWebApplicationContext@6440112d: startup date [Sun Jun 10 10:16:48 CST 2018]; root of context hierarchy
+10:17:08.178 [ INFO] j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
