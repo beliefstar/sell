@@ -20,19 +20,20 @@ public class OrderFormToOrderDTOConverter {
         orderDTO.setBuyerAddress(orderForm.getAddress());
         orderDTO.setBuyerOpenid(orderForm.getOpenid());
 
-        ObjectMapper objectMapper  = new ObjectMapper();
-        OrderDetail[] orderDetails;
-        try {
-            orderDetails = objectMapper.readValue(orderForm.getItems(), OrderDetail[].class);
-            if (orderDetails == null || orderDetails.length == 0) {
-                throw new SellException(ResultEnum.CART_EMPTY);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new SellException(ResultEnum.PARAM_ERROR);
-        }
+//        ObjectMapper objectMapper  = new ObjectMapper();
+//        OrderDetail[] orderDetails;
+//        try {
+//            orderDetails = objectMapper.readValue(orderForm.getItems(), OrderDetail[].class);
+//            if (orderDetails == null || orderDetails.length == 0) {
+//                throw new SellException(ResultEnum.CART_EMPTY);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            throw new SellException(ResultEnum.PARAM_ERROR);
+//        }
 
-        orderDTO.setOrderDetailList(Arrays.asList(orderDetails));
+//        orderDTO.setOrderDetailList(Arrays.asList(orderDetails));
+        orderDTO.setOrderDetailList(orderForm.getItems());
         return orderDTO;
     }
 }

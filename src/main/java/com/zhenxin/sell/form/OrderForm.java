@@ -1,7 +1,10 @@
 package com.zhenxin.sell.form;
 
+import com.zhenxin.sell.dataobject.OrderDetail;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import java.util.List;
 
 
 @Data
@@ -20,6 +23,6 @@ public class OrderForm {
     private String openid;
 
     @NotEmpty(message = "购物车为空")
-    private String items;
+    private List<OrderDetail> items;
 
 }

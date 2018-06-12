@@ -38,38 +38,65 @@
                         <td>${item.getPayStatusEnum()}</td>
                         <td>${item.createTime}</td>
                         <td>详情</td>
-                        <td>取消</td>
+                        <td>
+                            <#if item.orderStatus == 0>
+                                <a href="/sell/seller/order/cancel?orderId=${item.orderId}">取消</a>
+                            </#if>
+                        </td>
                     </tr>
                 </#list>
                 </tbody>
             </table>
         </div>
         <div class="col-md-12 column">
-            <ul class="pagination pull-right">
-                <li>
-                    <a href="#">上一页</a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">下一页</a>
-                </li>
-            </ul>
+            <form id="mForm">
+                <input type="hidden" id="pageInput" name="page" value="0">
+                <ul class="pagination pull-right">
+                    <#if currentPage == 0>
+                        <li class="disabled">
+                            <a href="javascript:void(0)">上一页</a>
+                        </li>
+                    <#else >
+                        <li>
+                            <a href="javascript:void(0)" onclick="jumpPage(${currentPage - 1})">上一页</a>
+                        </li>
+                    </#if>
+                    <#list 1..orderDTOPage.getTotalPages() as item>
+                        <#if (currentPage + 1) lte (item + 5) && (currentPage + 1) gte (item - 5)>
+                            <#if currentPage == item_index>
+                                <li class="disabled"><a href="#">${item}</a></li>
+                            <#else >
+                                <li class="">
+                                    <a href="javascript:void(0)" onclick="jumpPage(${item_index})">${item}</a>
+                                </li>
+                            </#if>
+                        </#if>
+                    </#list>
+                    <#if currentPage == (orderDTOPage.getTotalPages() - 1)>
+                        <li class="disabled">
+                            <a href="javascript:void(0)">下一页</a>
+                        </li>
+                    <#else >
+                        <li>
+                            <a href="javascript:void(0)" onclick="jumpPage(${currentPage + 1})">下一页</a>
+                        </li>
+                    </#if>
+                </ul>
+            </form>
         </div>
     </div>
 </div>
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script>
+    
+    function jumpPage(pageNum) {
+        $("#pageInput").val(pageNum);
+        $("#mForm").submit();
+    }
+    
+</script>
 </body>
 </html>

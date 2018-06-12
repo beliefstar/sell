@@ -123,6 +123,7 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @Override
     public OrderDTO cancel(OrderDTO orderDTO) {
+        //验证状态
         if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
             throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }

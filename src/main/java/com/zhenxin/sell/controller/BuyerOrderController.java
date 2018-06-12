@@ -18,10 +18,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -42,14 +39,15 @@ public class BuyerOrderController {
     }
 
     //创建订单
-    @PostMapping("/create")
-    public ResultVO create(@Valid OrderForm orderForm, BindingResult bindingResult) {
+    @PostMapping(value = "/create")
+    public ResultVO create(@RequestBody OrderForm orderForm) {
 
-        if (bindingResult.hasErrors()) {
-            log.error("【创建订单】参数不正确, orderForm={}", orderForm);
-            throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
-                    bindingResult.getFieldError().getDefaultMessage());
-        }
+//        if (bindingResult.hasErrors()) {
+//            log.error("【创建订单】参数不正确, orderForm={}", orderForm);
+//            throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
+//                    bindingResult.getFieldError().getDefaultMessage());
+//        }
+
         OrderDTO orderDTO = OrderFormToOrderDTOConverter.convert(orderForm);
         System.out.println(orderDTO);
         orderDTO = orderService.createOrder(orderDTO);

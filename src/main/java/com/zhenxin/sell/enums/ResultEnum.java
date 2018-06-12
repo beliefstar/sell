@@ -25,7 +25,9 @@ public enum ResultEnum {
 
     ORDER_PAY_STATUS_ERROR(18, "订单支付状态不正确"),
 
-    ORDER_OWNER_ERROR(19, "该订单不属于当前用户")
+    ORDER_OWNER_ERROR(19, "该订单不属于当前用户"),
+
+    OPTION_SUCCESS(20, "操作成功！")
     ;
 
     private Integer code;

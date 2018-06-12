@@ -45,4 +45,13 @@ public class ProductCategoryRepositoryTest {
         System.out.println(typeIn);
         Assert.assertNotEquals(0, typeIn.size());
     }
+
+    @Test
+    public void saveTest() {
+        ProductCategory category = new ProductCategory();
+        category.setCategoryName("人气组合");
+        category.setCategoryType(3);
+        category = repository.save(category);
+        System.out.println(category);
+    }
 }
