@@ -24,5 +24,4 @@ public class OrderForm {
 
     @NotEmpty(message = "购物车为空")
     private List<OrderDetail> items;
-
 }

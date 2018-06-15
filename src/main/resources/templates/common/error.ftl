@@ -28,7 +28,7 @@
 
     var timer = setInterval(function () {
         se--;
-        seElem.html = se;
+        seElem.innerHTML = se;
         if (se <= 0) {
             window.location.href = "${url}";
         }

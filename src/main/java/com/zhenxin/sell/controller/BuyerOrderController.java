@@ -12,15 +12,13 @@ import com.zhenxin.sell.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,13 +38,13 @@ public class BuyerOrderController {
 
     //创建订单
     @PostMapping(value = "/create")
-    public ResultVO create(@RequestBody OrderForm orderForm) {
+    public ResultVO create(@RequestBody @Validated OrderForm orderForm, BindingResult bindingResult) {
 
-//        if (bindingResult.hasErrors()) {
-//            log.error("【创建订单】参数不正确, orderForm={}", orderForm);
-//            throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
-//                    bindingResult.getFieldError().getDefaultMessage());
-//        }
+        if (bindingResult.hasErrors()) {
+            log.error("【创建订单】参数不正确, orderForm={}", orderForm);
+            throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
+                    bindingResult.getFieldError().getDefaultMessage());
+        }
 
         OrderDTO orderDTO = OrderFormToOrderDTOConverter.convert(orderForm);
         System.out.println(orderDTO);

@@ -37,7 +37,9 @@
                         <td>${item.getOrderStatusEnum()}</td>
                         <td>${item.getPayStatusEnum()}</td>
                         <td>${item.createTime}</td>
-                        <td>详情</td>
+                        <td>
+                            <a href="/sell/seller/order/detail?orderId=${item.orderId}">详情</a>
+                        </td>
                         <td>
                             <#if item.orderStatus == 0>
                                 <a href="/sell/seller/order/cancel?orderId=${item.orderId}">取消</a>
