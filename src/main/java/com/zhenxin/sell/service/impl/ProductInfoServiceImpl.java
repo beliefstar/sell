@@ -7,11 +7,13 @@ import com.zhenxin.sell.enums.ResultEnum;
 import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.repository.ProductInfoRepository;
 import com.zhenxin.sell.service.ProductInfoService;
+import com.zhenxin.sell.utils.KEYUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -71,5 +73,48 @@ public class ProductInfoServiceImpl implements ProductInfoService {
                 throw new SellException(ResultEnum.LACK_OF_STOCK);
             }
         }
+    }
+
+    @Override
+    public ProductInfo onSale(String productId) {
+
+        ProductInfo info = findOne(productId);
+
+        if (info == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+
+        if (info.getProductStatus().equals(ProductStatusEnum.UP.getCode())) {
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+
+        info.setProductStatus(ProductStatusEnum.UP.getCode());
+
+        return repository.save(info);
+    }
+
+    @Override
+    public ProductInfo offSale(String productId) {
+        ProductInfo info = findOne(productId);
+
+        if (info == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+
+        if (info.getProductStatus().equals(ProductStatusEnum.DOWN.getCode())) {
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+
+        info.setProductStatus(ProductStatusEnum.DOWN.getCode());
+
+        return repository.save(info);
+    }
+
+    @Override
+    public ProductInfo save(ProductInfo productInfo) {
+        if (StringUtils.isEmpty(productInfo.getProductId())) {
+            productInfo.setProductId(KEYUtil.gain());
+        }
+        return repository.save(productInfo);
     }
 }

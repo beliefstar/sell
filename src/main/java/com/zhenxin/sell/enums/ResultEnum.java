@@ -27,7 +27,13 @@ public enum ResultEnum {
 
     ORDER_OWNER_ERROR(19, "该订单不属于当前用户"),
 
-    OPTION_SUCCESS(20, "操作成功！")
+    OPTION_SUCCESS(20, "操作成功！"),
+
+    PRODUCT_STATUS_ERROR(21, "商品状态错误！"),
+
+    OPTION_ERROR(22, "操作失败！"),
+
+    CATEGORY_IS_EXIST(23, "类目编号已存在")
     ;
 
     private Integer code;

@@ -1,11 +1,14 @@
 package com.zhenxin.sell.service.impl;
 
 import com.zhenxin.sell.dataobject.ProductCategory;
+import com.zhenxin.sell.enums.ResultEnum;
+import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.repository.ProductCategoryRepository;
 import com.zhenxin.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,6 +38,30 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public ProductCategory save(ProductCategory category) {
-        return repository.save(category);
+
+        List<ProductCategory> categoryList = categoryTypeCheck(category.getCategoryType());
+
+        if (category.getCategoryId() == null) {
+            if (!categoryList.isEmpty()) {
+                throw new SellException(ResultEnum.CATEGORY_IS_EXIST);
+            }
+            return repository.save(category);
+        }
+
+        if (categoryList.size() == 0) {
+            return repository.save(category);
+        }
+
+        if (categoryList.size() == 1 && categoryList.get(0).getCategoryId().equals(category.getCategoryId())) {
+            return repository.save(category);
+        }
+        throw new SellException(ResultEnum.CATEGORY_IS_EXIST);
+    }
+
+    private List<ProductCategory> categoryTypeCheck(Integer categoryType) {
+        List<Integer> list = new ArrayList<>();
+        list.add(categoryType);
+
+        return findByCategoryTypeIn(list);
     }
 }

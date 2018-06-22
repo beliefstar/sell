@@ -13,35 +13,43 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>订单ID</th>
-                            <th>姓名</th>
-                            <th>手机号</th>
-                            <th>地址</th>
-                            <th>金额</th>
-                            <th>订单状态</th>
-                            <th>支付状态</th>
+                            <th>商品ID</th>
+                            <th>商品名</th>
+                            <th>商品单价</th>
+                            <th>商品库存</th>
+                            <th style="width: 200px;">商品描述</th>
+                            <th>商品图片</th>
+                            <th>类目编号</th>
+                            <th>商品状态</th>
                             <th>创建时间</th>
+                            <th>修改时间</th>
                             <th colspan="2">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                <#list orderDTOPage.content as item>
+                <#list productInfoPage.content as item>
                 <tr>
-                    <td>${item.orderId}</td>
-                    <td>${item.buyerName}</td>
-                    <td>${item.buyerPhone}</td>
-                    <td>${item.buyerAddress}</td>
-                    <td>${item.orderAmount}</td>
-                    <td>${item.getOrderStatusEnum()}</td>
-                    <td>${item.getPayStatusEnum()}</td>
-                    <td>${item.createTime}</td>
+                    <td>${item.productId}</td>
+                    <td>${item.productName}</td>
+                    <td>${item.productPrice}</td>
+                    <td>${item.productStock}</td>
+                    <td>${item.productDescription}</td>
                     <td>
-                        <a href="/sell/seller/order/detail?orderId=${item.orderId}">详情</a>
+                        <img src="${item.productIcon}" style="height: 100px">
+                    </td>
+                    <td>${item.categoryType}</td>
+                    <td>${item.getProductStatusEnum()}</td>
+                    <td>${item.createTime}</td>
+                    <td>${item.updateTime}</td>
+                    <td>
+                        <a href="/sell/seller/product/index?productId=${item.productId}">修改</a>
                     </td>
                     <td>
-                            <#if item.orderStatus == 0>
-                                <a href="/sell/seller/order/cancel?orderId=${item.orderId}">取消</a>
-                            </#if>
+                        <#if item.getProductStatusEnum() == "在架">
+                            <a href="/sell/seller/product/offSale?productId=${item.productId}">下架</a>
+                        <#else >
+                            <a href="/sell/seller/product/onSale?productId=${item.productId}">上架</a>
+                        </#if>
                     </td>
                 </tr>
                 </#list>
@@ -61,7 +69,7 @@
                             <a href="javascript:void(0)" onclick="jumpPage(${currentPage - 1})">上一页</a>
                         </li>
                     </#if>
-                    <#list 1..orderDTOPage.getTotalPages() as item>
+                    <#list 1..productInfoPage.getTotalPages() as item>
                         <#if (currentPage + 1) lte (item + 5) && (currentPage + 1) gte (item - 5)>
                             <#if currentPage == item_index>
                                 <li class="disabled"><a href="#">${item}</a></li>
@@ -72,7 +80,7 @@
                             </#if>
                         </#if>
                     </#list>
-                    <#if currentPage == (orderDTOPage.getTotalPages() - 1)>
+                    <#if currentPage == (productInfoPage.getTotalPages() - 1)>
                         <li class="disabled">
                             <a href="javascript:void(0)">下一页</a>
                         </li>

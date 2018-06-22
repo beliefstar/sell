@@ -54,7 +54,7 @@ public class SellerOrderController {
             return "common/error";
         }
         modelMap.put("message", ResultEnum.OPTION_SUCCESS.getMessage());
-        return "order/info";
+        return "common/info";
     }
 
     /**
@@ -105,7 +105,7 @@ public class SellerOrderController {
             return "common/error";
         }
         modelMap.put("message", ResultEnum.OPTION_SUCCESS.getMessage());
-        return "order/info";
+        return "common/info";
     }
 
 }

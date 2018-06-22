@@ -1,15 +1,13 @@
 <!doctype html>
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>订单详细</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <#include "../common/header.ftl">
 <body>
-<div class="container">
+
+<div id="wrapper" class="toggled">
+    <#include "../common/nav.ftl">
+    <div id="page-content-wrapper">
+
+        <div class="container">
     <div class="row clearfix">
         <div class="col-md-6 column">
             <table class="table table-bordered table-hover">
@@ -54,14 +52,12 @@
         </div>
         <#if orderDTO.getOrderStatusEnum() == "新订单">
             <div class="col-md-6">
-                <a href="/sell/seller/order/finish?orderId=${orderDTO.orderId}">
-                    <button type="button" class="btn btn-primary btn-default">完结订单</button>
-                </a>
-                <a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}">
-                    <button type="button" class="btn btn-danger btn-default">取消订单</button>
-                </a>
+                <a href="/sell/seller/order/finish?orderId=${orderDTO.orderId}" type="button" class="btn btn-primary btn-default">完结订单</a>
+                <a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}" type="button" class="btn btn-danger btn-default">取消订单</a>
             </div>
         </#if>
+    </div>
+</div>
     </div>
 </div>
 </body>

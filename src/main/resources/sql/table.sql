@@ -53,7 +53,15 @@ create table `order_detail`(
 
 
 
-
+create table `seller_info`(
+	`seller_id` varchar(32) not null,
+	`username` varchar(32) not null,
+	`password` varchar(32) not null,
+	`openid` varchar(64) not null,
+	`create_time` timestamp not null default CURRENT_TIMESTAMP comment '创建时间',
+	`update_time` timestamp not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP comment '修改时间',
+	primary key(`seller_id`)
+) comment '卖家信息表';
 
 
 
