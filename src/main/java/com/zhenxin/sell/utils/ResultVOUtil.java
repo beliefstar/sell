@@ -8,7 +8,7 @@ public class ResultVOUtil {
 
     public static ResultVO success(Object data) {
         ResultVO resultVO = new ResultVO();
-        resultVO.setMsg("成功");
+        resultVO.setMsg("ok");
         resultVO.setCode(0);
         resultVO.setData(data);
         return resultVO;
@@ -22,7 +22,7 @@ public class ResultVOUtil {
         ResultVO resultVO = new ResultVO();
         resultVO.setMsg(msg);
         resultVO.setCode(1);
-        resultVO.setData(null);
+        resultVO.setData("none");
         return resultVO;
     }
 }

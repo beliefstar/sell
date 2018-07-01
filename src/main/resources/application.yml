@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
+    username: zhenxin
+    password: 1234
     url: jdbc:mysql://localhost:3306/sell?useUnicode=true&characterEncoding=UTF-8&useSSL=false
   jpa:
     show-sql: true
@@ -15,6 +15,8 @@ spring:
     host: 119.29.214.244
     port: 6379
     password: 123456
+app:
+  server: http://localhost:${server.port}
 img:
   server: http://119.29.214.244:8090
 #

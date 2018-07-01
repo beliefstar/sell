@@ -33,7 +33,17 @@ public enum ResultEnum {
 
     OPTION_ERROR(22, "操作失败！"),
 
-    CATEGORY_IS_EXIST(23, "类目编号已存在")
+    CATEGORY_IS_EXIST(23, "类目编号已存在"),
+
+    LOGIN_FAIL(24, "帐号或密码错误"),
+
+    LOGIN_SUCCESS(25, "登录成功"),
+
+    REGISTER_FAIL(24, "注册失败"),
+
+    REGISTER_SUCCESS(25, "注册成功"),
+
+    LOGIN_NOT_EXIST(26, "用户不存在")
     ;
 
     private Integer code;

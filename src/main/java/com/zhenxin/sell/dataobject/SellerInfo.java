@@ -5,12 +5,13 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Data
 @DynamicUpdate
-public class SellerInfo {
+public class SellerInfo implements Serializable {
     /** 用户ID */
     @Id
     private String seller_id;
