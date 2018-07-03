@@ -41,7 +41,7 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         try {
             String nPwd = DigestUtils.md5DigestAsHex(pwd.getBytes("UTF-8"));
             info.setPassword(nPwd);
-            info.setSeller_id(KEYUtil.gain());
+            info.setSellerId(KEYUtil.gain());
             info.setOpenid(KEYUtil.gain());
             sellerInfoRepository.save(info);
         } catch (UnsupportedEncodingException e) {

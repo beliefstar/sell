@@ -12,9 +12,10 @@ import java.util.Date;
 @Data
 @DynamicUpdate
 public class SellerInfo implements Serializable {
+    private static final long serialVersionUID = -8076541536554855695L;
     /** 用户ID */
     @Id
-    private String seller_id;
+    private String sellerId;
 
     /** 用户名 */
     private String username;

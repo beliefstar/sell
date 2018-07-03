@@ -14,7 +14,7 @@
     <div class="page page-front">
         <div class="page-content">
             <div class="input-row">
-                <h3>注册</h3>
+                <h3 style="text-align: center">注册</h3>
             </div>
             <div class="input-row">
                 <label class="label fadeIn">用户名</label>
@@ -71,9 +71,9 @@
                 },
                 success: function (res) {
                     setTimeout(function () {
-                        $('#submit').addClass('done').closest('#window').addClass('flip');
-                        if (res.data === "ok") {
-                            location.href = "${appServer}/sell/seller/info/login";
+                        $('#submit').removeClass('loading');
+                        if (res.msg === "ok") {
+                            MessageBox.alert("操作成功," + res.msg + "<a href=\"${appServer}/sell/seller/info/login\">去登陆</a>", "提示");
                         } else {
                             MessageBox.alert("操作出错," + res.msg, "提示");
                         }

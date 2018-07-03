@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sell - Register</title>
+    <title>Sell - Login</title>
     <link rel="stylesheet" href="/sell/login/css/reset.css" />
     <link rel="stylesheet" href="/sell/login/css/style.css" media="screen" type="text/css" />
 </head>
@@ -14,7 +14,7 @@
     <div class="page page-front">
         <div class="page-content">
             <div class="input-row">
-                <h3>登录</h3>
+                <h3 style="text-align: center">登录</h3>
             </div>
             <div class="input-row">
                 <label class="label fadeIn">用户名</label>
@@ -56,7 +56,7 @@
             var pwd = $("#password").val();
 
             if (username.trim() === "" || pwd.trim() === "") {
-                MessageBox.tip("帐号或密码为空");
+                MessageBox.tipe("帐号或密码为空");
                 return;
             }
 
@@ -71,17 +71,21 @@
                 },
                 success: function (res) {
                     setTimeout(function () {
-                        $('#submit').addClass('done').closest('#window').addClass('flip');
-                        if (res.data === "ok") {
+                        $('#submit').removeClass('loading');
+                        if (res.msg === "ok") {
                             var url = location.href;
                             var temp = url.split("?");
-                            temp = temp[1].split("&");
-                            var urlObj = {};
-                            $.each(temp, function (k, v) {
-                                var t = v.split("=");
-                                urlObj[t[0]] = t[1];
-                            });
-                            location.href = "${appServer}/sell" + urlObj.redirectUrl;
+                            if (temp.length > 1) {
+                                temp = temp[1].split("&");
+                                var urlObj = {};
+                                $.each(temp, function (k, v) {
+                                    var t = v.split("=");
+                                    urlObj[t[0]] = t[1];
+                                });
+                                location.href = urlObj.redirectUrl;
+                            } else {
+                                location.href = "${appServer}/sell/seller/order/list";
+                            }
                         } else {
                             MessageBox.alert("操作出错," + res.msg, "提示");
                         }

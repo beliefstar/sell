@@ -30,7 +30,7 @@ public class SellerServiceImplTest {
         SellerInfo sellerInfo = new SellerInfo();
         sellerInfo.setOpenid("abccc");
         sellerInfo.setPassword(KEYUtil.gain());
-        sellerInfo.setSeller_id(KEYUtil.gain());
+        sellerInfo.setSellerId(KEYUtil.gain());
         sellerInfo.setUsername("zhenxin");
         sellerInfoRepository.save(sellerInfo);
     }

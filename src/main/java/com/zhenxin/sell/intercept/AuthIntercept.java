@@ -24,13 +24,14 @@ public class AuthIntercept implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String token = CookieUtil.get(httpServletRequest, "token");
+        String rUrl = httpServletRequest.getRequestURL().toString();
         if (StringUtils.isEmpty(token)) {
-            httpServletResponse.sendRedirect(sellConfig.getAppServer() + "/sell/seller/info/login");
+            httpServletResponse.sendRedirect(sellConfig.getAppServer() + "/sell/seller/info/login?redirectUrl=" + rUrl);
             return false;
         }
         Object info = redisService.get(token);
         if (info == null) {
-            httpServletResponse.sendRedirect(sellConfig.getAppServer() + "/sell/seller/info/login");
+            httpServletResponse.sendRedirect(sellConfig.getAppServer() + "/sell/seller/info/login?redirectUrl=" + rUrl);
             return false;
         }
         return true;
