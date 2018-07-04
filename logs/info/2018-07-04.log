@@ -1,0 +1,143 @@
+17:28:48.927 [ INFO] com.zhenxin.sell.SellApplication        : Starting SellApplication on CN6CR552179X with PID 10124 (C:\Users\xzhen\Desktop\project\sell\target\classes started by xzhen in C:\Users\xzhen\Desktop\project\sell)
+17:28:48.930 [ INFO] com.zhenxin.sell.SellApplication        : No active profile set, falling back to default profiles: default
+17:28:49.138 [ INFO] o.h.validator.internal.util.Version     : HV000001: Hibernate Validator 5.3.6.Final
+17:28:49.217 [ INFO] ationConfigEmbeddedWebApplicationContext: Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7dcf94f8: startup date [Wed Jul 04 17:28:49 CST 2018]; root of context hierarchy
+17:28:50.365 [ WARN] o.m.s.mapper.ClassPathMapperScanner     : No MyBatis mapper was found in '[com.zhenxin.sell]' package. Please check your configuration.
+17:28:50.410 [ INFO] .s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode!
+17:28:50.535 [ INFO] .s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode!
+17:28:50.625 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.OrderMasterRepository.
+17:28:50.626 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.OrderDetailRepository.
+17:28:50.626 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.ProductInfoRepository.
+17:28:50.626 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.SellerInfoRepository.
+17:28:50.627 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.ProductCategoryRepository.
+17:28:51.009 [ INFO] trationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6e127b64] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17:28:51.349 [ INFO] s.b.c.e.t.TomcatEmbeddedServletContainer: Tomcat initialized with port(s): 9010 (http)
+17:28:51.361 [ INFO] o.a.coyote.http11.Http11NioProtocol     : Initializing ProtocolHandler ["http-nio-9010"]
+17:28:51.369 [ INFO] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
+17:28:51.370 [ INFO] org.apache.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31
+17:28:51.562 [ INFO] o.a.c.c.C.[Tomcat].[localhost].[/sell]  : Initializing Spring embedded WebApplicationContext
+17:28:51.562 [ INFO] o.s.web.context.ContextLoader           : Root WebApplicationContext: initialization completed in 2345 ms
+17:28:51.824 [ INFO] o.s.b.w.servlet.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/]
+17:28:51.828 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+17:28:51.829 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+17:28:51.829 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+17:28:51.829 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+17:28:52.471 [ INFO] j.LocalContainerEntityManagerFactoryBean: Building JPA container EntityManagerFactory for persistence unit 'default'
+17:28:52.481 [ INFO] o.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+17:28:52.544 [ INFO] org.hibernate.Version                   : HHH000412: Hibernate Core {5.0.12.Final}
+17:28:52.546 [ INFO] org.hibernate.cfg.Environment           : HHH000206: hibernate.properties not found
+17:28:52.547 [ INFO] org.hibernate.cfg.Environment           : HHH000021: Bytecode provider name : javassist
+17:28:52.590 [ INFO] o.hibernate.annotations.common.Version  : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17:28:52.900 [ INFO] org.hibernate.dialect.Dialect           : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+17:28:53.430 [ INFO] j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:28:54.122 [ INFO] o.s.w.s.v.f.FreeMarkerConfigurer        : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+17:28:54.396 [ INFO] s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7dcf94f8: startup date [Wed Jul 04 17:28:49 CST 2018]; root of context hierarchy
+17:28:54.468 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/create],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.create(com.zhenxin.sell.form.OrderForm,org.springframework.validation.BindingResult)
+17:28:54.469 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/list],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.list(org.springframework.data.domain.Pageable,java.lang.String)
+17:28:54.469 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/detail],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.detail(java.lang.String,java.lang.String)
+17:28:54.470 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/cancel],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.cancel(java.lang.String,java.lang.String)
+17:28:54.471 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerProductController.list()
+17:28:54.472 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/index],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.index(java.lang.Integer,org.springframework.ui.ModelMap)
+17:28:54.472 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.list(org.springframework.ui.ModelMap)
+17:28:54.473 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/saveOrUpdate],methods=[POST]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.saveOrUpdate(com.zhenxin.sell.dataobject.ProductCategory,org.springframework.ui.ModelMap)
+17:28:54.474 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/register],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.SellerInfoController.register(com.zhenxin.sell.dataobject.SellerInfo)
+17:28:54.475 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/register],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerInfoController.register()
+17:28:54.475 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/login],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.SellerInfoController.login(com.zhenxin.sell.dataobject.SellerInfo,javax.servlet.http.HttpServletResponse)
+17:28:54.475 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/login],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerInfoController.login()
+17:28:54.476 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.list(org.springframework.data.domain.Pageable,org.springframework.ui.ModelMap)
+17:28:54.477 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/finish],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.finish(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.477 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/detail],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.detail(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.477 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/cancel],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.cancel(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.478 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/index],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.index(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.479 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.findAll(org.springframework.data.domain.Pageable,org.springframework.ui.ModelMap)
+17:28:54.479 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/onSale],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.onSale(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.479 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/offSale],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.offSale(java.lang.String,org.springframework.ui.ModelMap)
+17:28:54.479 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/saveOrUpdate],methods=[POST]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.saveOrUpdate(com.zhenxin.sell.dataobject.ProductInfo,org.springframework.ui.ModelMap)
+17:28:54.481 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+17:28:54.482 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+17:28:54.508 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:28:54.508 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:28:54.526 [ INFO] .m.m.a.ExceptionHandlerExceptionResolver: Detected @ExceptionHandler methods in globalExceptionHandler
+17:28:54.548 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:28:55.116 [ INFO] o.s.w.s.s.s.ServerEndpointExporter      : Registering @ServerEndpoint class: class com.zhenxin.sell.websocket.OrderWebSocket
+17:28:55.125 [ INFO] o.s.j.e.a.AnnotationMBeanExporter       : Registering beans for JMX exposure on startup
+17:28:55.142 [ INFO] o.a.coyote.http11.Http11NioProtocol     : Starting ProtocolHandler ["http-nio-9010"]
+17:28:55.160 [ INFO] o.a.tomcat.util.net.NioSelectorPool     : Using a shared selector for servlet write/read
+17:28:55.204 [ INFO] s.b.c.e.t.TomcatEmbeddedServletContainer: Tomcat started on port(s): 9010 (http)
+17:28:55.208 [ INFO] com.zhenxin.sell.SellApplication        : Started SellApplication in 6.9 seconds (JVM running for 8.3)
+17:30:47.036 [ INFO] com.zhenxin.sell.SellApplication        : Starting SellApplication on CN6CR552179X with PID 5928 (C:\Users\xzhen\Desktop\project\sell\target\classes started by xzhen in C:\Users\xzhen\Desktop\project\sell)
+17:30:47.040 [ INFO] com.zhenxin.sell.SellApplication        : No active profile set, falling back to default profiles: default
+17:30:47.357 [ INFO] o.h.validator.internal.util.Version     : HV000001: Hibernate Validator 5.3.6.Final
+17:30:47.429 [ INFO] ationConfigEmbeddedWebApplicationContext: Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@217ed35e: startup date [Wed Jul 04 17:30:47 CST 2018]; root of context hierarchy
+17:30:48.458 [ WARN] o.m.s.mapper.ClassPathMapperScanner     : No MyBatis mapper was found in '[com.zhenxin.sell]' package. Please check your configuration.
+17:30:48.522 [ INFO] .s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode!
+17:30:48.798 [ INFO] .s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode!
+17:30:49.081 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.OrderMasterRepository.
+17:30:49.082 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.OrderDetailRepository.
+17:30:49.082 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.ProductInfoRepository.
+17:30:49.083 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.SellerInfoRepository.
+17:30:49.084 [ INFO] .RepositoryConfigurationExtensionSupport: Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.zhenxin.sell.repository.ProductCategoryRepository.
+17:30:49.582 [ INFO] trationDelegate$BeanPostProcessorChecker: Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8f36c1b5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+17:30:50.039 [ INFO] s.b.c.e.t.TomcatEmbeddedServletContainer: Tomcat initialized with port(s): 9010 (http)
+17:30:50.051 [ INFO] o.a.coyote.http11.Http11NioProtocol     : Initializing ProtocolHandler ["http-nio-9010"]
+17:30:50.062 [ INFO] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
+17:30:50.062 [ INFO] org.apache.catalina.core.StandardEngine : Starting Servlet Engine: Apache Tomcat/8.5.31
+17:30:50.369 [ INFO] o.a.c.c.C.[Tomcat].[localhost].[/sell]  : Initializing Spring embedded WebApplicationContext
+17:30:50.369 [ INFO] o.s.web.context.ContextLoader           : Root WebApplicationContext: initialization completed in 2940 ms
+17:30:50.641 [ INFO] o.s.b.w.servlet.ServletRegistrationBean : Mapping servlet: 'dispatcherServlet' to [/]
+17:30:50.645 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+17:30:50.646 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+17:30:50.646 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+17:30:50.646 [ INFO] o.s.b.w.servlet.FilterRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+17:30:51.534 [ INFO] j.LocalContainerEntityManagerFactoryBean: Building JPA container EntityManagerFactory for persistence unit 'default'
+17:30:51.547 [ INFO] o.hibernate.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+17:30:51.637 [ INFO] org.hibernate.Version                   : HHH000412: Hibernate Core {5.0.12.Final}
+17:30:51.639 [ INFO] org.hibernate.cfg.Environment           : HHH000206: hibernate.properties not found
+17:30:51.640 [ INFO] org.hibernate.cfg.Environment           : HHH000021: Bytecode provider name : javassist
+17:30:51.696 [ INFO] o.hibernate.annotations.common.Version  : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17:30:52.022 [ INFO] org.hibernate.dialect.Dialect           : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+17:30:52.526 [ INFO] j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:30:54.019 [ INFO] o.s.w.s.v.f.FreeMarkerConfigurer        : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+17:30:54.399 [ INFO] s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@217ed35e: startup date [Wed Jul 04 17:30:47 CST 2018]; root of context hierarchy
+17:30:54.491 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/create],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.create(com.zhenxin.sell.form.OrderForm,org.springframework.validation.BindingResult)
+17:30:54.492 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/list],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.list(org.springframework.data.domain.Pageable,java.lang.String)
+17:30:54.493 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/cancel],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.cancel(java.lang.String,java.lang.String)
+17:30:54.493 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/order/detail],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerOrderController.detail(java.lang.String,java.lang.String)
+17:30:54.494 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/buyer/product/list],methods=[GET]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.BuyerProductController.list()
+17:30:54.494 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/kill],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.KillController.kill(java.lang.String)
+17:30:54.495 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/stock],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.KillController.getStock(java.lang.String)
+17:30:54.496 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/index],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.index(java.lang.Integer,org.springframework.ui.ModelMap)
+17:30:54.496 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.list(org.springframework.ui.ModelMap)
+17:30:54.496 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/category/saveOrUpdate],methods=[POST]}" onto public java.lang.String com.zhenxin.sell.controller.SellerCategoryController.saveOrUpdate(com.zhenxin.sell.dataobject.ProductCategory,org.springframework.ui.ModelMap)
+17:30:54.497 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/register],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.SellerInfoController.register(com.zhenxin.sell.dataobject.SellerInfo)
+17:30:54.498 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/register],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerInfoController.register()
+17:30:54.641 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/login],methods=[POST]}" onto public com.zhenxin.sell.VO.ResultVO com.zhenxin.sell.controller.SellerInfoController.login(com.zhenxin.sell.dataobject.SellerInfo,javax.servlet.http.HttpServletResponse)
+17:30:54.641 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/info/login],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerInfoController.login()
+17:30:54.643 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.list(org.springframework.data.domain.Pageable,org.springframework.ui.ModelMap)
+17:30:54.644 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/finish],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.finish(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.644 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/cancel],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.cancel(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.644 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/order/detail],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerOrderController.detail(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.648 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/index],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.index(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.648 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/list],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.findAll(org.springframework.data.domain.Pageable,org.springframework.ui.ModelMap)
+17:30:54.649 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/saveOrUpdate],methods=[POST]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.saveOrUpdate(com.zhenxin.sell.dataobject.ProductInfo,org.springframework.ui.ModelMap)
+17:30:54.649 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/onSale],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.onSale(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.649 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/seller/product/offSale],methods=[GET]}" onto public java.lang.String com.zhenxin.sell.controller.SellerProductController.offSale(java.lang.String,org.springframework.ui.ModelMap)
+17:30:54.651 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+17:30:54.652 [ INFO] s.w.s.m.m.a.RequestMappingHandlerMapping: Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+17:30:54.689 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:30:54.690 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:30:54.710 [ INFO] .m.m.a.ExceptionHandlerExceptionResolver: Detected @ExceptionHandler methods in globalExceptionHandler
+17:30:54.731 [ INFO] o.s.w.s.handler.SimpleUrlHandlerMapping : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+17:30:55.282 [ INFO] o.s.w.s.s.s.ServerEndpointExporter      : Registering @ServerEndpoint class: class com.zhenxin.sell.websocket.OrderWebSocket
+17:30:55.294 [ INFO] o.s.j.e.a.AnnotationMBeanExporter       : Registering beans for JMX exposure on startup
+17:30:55.313 [ INFO] o.a.coyote.http11.Http11NioProtocol     : Starting ProtocolHandler ["http-nio-9010"]
+17:30:55.338 [ INFO] o.a.tomcat.util.net.NioSelectorPool     : Using a shared selector for servlet write/read
+17:30:55.367 [ INFO] s.b.c.e.t.TomcatEmbeddedServletContainer: Tomcat started on port(s): 9010 (http)
+17:30:55.373 [ INFO] com.zhenxin.sell.SellApplication        : Started SellApplication in 9.303 seconds (JVM running for 10.94)
+17:31:09.016 [ INFO] o.a.c.c.C.[Tomcat].[localhost].[/sell]  : Initializing Spring FrameworkServlet 'dispatcherServlet'
+17:31:09.016 [ INFO] o.s.web.servlet.DispatcherServlet       : FrameworkServlet 'dispatcherServlet': initialization started
+17:31:09.051 [ INFO] o.s.web.servlet.DispatcherServlet       : FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms
