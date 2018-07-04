@@ -41,7 +41,7 @@ var MessageBox = (function(){
 
     var styleDom = this.createStyle(),
         divDom = this.createDiv(),
-        title = title || '',
+        title = title || '提示',
         _self = this;
 
     if(!this.alertStyleIsAppend){

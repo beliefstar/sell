@@ -4,6 +4,7 @@ import com.zhenxin.sell.enums.ResultEnum;
 
 public class SellException extends RuntimeException {
 
+    private static final long serialVersionUID = -1858808377709446557L;
     private Integer code;
 
     public SellException(ResultEnum resultEnum) {
@@ -14,5 +15,9 @@ public class SellException extends RuntimeException {
     public SellException(Integer code, String message) {
         super(message);
         this.code = code;
+    }
+
+    public Integer getCode() {
+        return code;
     }
 }

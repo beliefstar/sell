@@ -9,6 +9,7 @@ import com.zhenxin.sell.form.OrderForm;
 import com.zhenxin.sell.service.BuyerService;
 import com.zhenxin.sell.service.OrderService;
 import com.zhenxin.sell.utils.ResultVOUtil;
+import com.zhenxin.sell.websocket.OrderWebSocket;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,11 +30,13 @@ public class BuyerOrderController {
 
     private final OrderService orderService;
     private final BuyerService buyerService;
+    private final OrderWebSocket orderWebSocket;
 
     @Autowired
-    public BuyerOrderController(OrderService orderService, BuyerService buyerService) {
+    public BuyerOrderController(OrderService orderService, BuyerService buyerService, OrderWebSocket orderWebSocket) {
         this.orderService = orderService;
         this.buyerService = buyerService;
+        this.orderWebSocket = orderWebSocket;
     }
 
     //创建订单
@@ -52,6 +55,10 @@ public class BuyerOrderController {
 
         Map<String, String> res = new HashMap<>();
         res.put("orderId", orderDTO.getOrderId());
+
+        //发送Socket
+        orderWebSocket.sendMessage(orderDTO.getOrderId());
+
         return ResultVOUtil.success(res);
     }
 

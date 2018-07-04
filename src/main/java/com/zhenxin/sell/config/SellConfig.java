@@ -37,7 +37,7 @@ public class SellConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authIntercept)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/seller/info/**", "/error");
+                .addPathPatterns("/seller/**")
+                .excludePathPatterns("/seller/info/**");
     }
 }

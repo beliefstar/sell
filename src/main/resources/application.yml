@@ -15,12 +15,13 @@ spring:
     host: 119.29.214.244
     port: 6379
     password: 123456
+
 app:
   server: http://localhost:${server.port}
 img:
   server: http://119.29.214.244:8090
 #
-#    12-5
+#    13-7
 #119.29.214.244
 # 日志配置
 # 区分 info 和 error 日志

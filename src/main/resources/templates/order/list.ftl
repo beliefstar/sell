@@ -94,13 +94,29 @@
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
+<script src="/sell/js/message-box.js"></script>
 <script>
     
     function jumpPage(pageNum) {
         $("#pageInput").val(pageNum);
         $("#mForm").submit();
     }
-    
+
+    var webSocket = null;
+    if ('webSocket' in window) {
+        webSocket = new WebSocket("ws://localhost:9010/sell/webSocket");
+    } else {
+        MessageBox.alert("当前浏览器不支持 WebSocket ");
+    }
+    webSocket.onopen = function (ev) {
+        MessageBox.tipe("<i>打开 WebSocket 连接</i>");
+    };
+    webSocket.onclose = function (ev) {
+        MessageBox.tipe("<i>关闭 WebSocket 连接 </i>")
+    };
+    webSocket.onmessage = function (ev) {
+        MessageBox.alert(ev.data, "提示");
+    }
 </script>
 </body>
 </html>
