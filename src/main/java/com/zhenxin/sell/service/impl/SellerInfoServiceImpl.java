@@ -1,5 +1,6 @@
 package com.zhenxin.sell.service.impl;
 
+import com.zhenxin.sell.config.SellConfig;
 import com.zhenxin.sell.constant.RedisConstant;
 import com.zhenxin.sell.dataobject.SellerInfo;
 import com.zhenxin.sell.enums.ResultEnum;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
@@ -74,11 +76,19 @@ public class SellerInfoServiceImpl implements SellerInfoService {
 
             redisService.set(key, info, expire.longValue());
 
-            CookieUtil.setCookie(response, "token", key, expire);
+            CookieUtil.setCookie(response, SellConfig.LOGIN_COOKIE_NAME, key, expire);
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             throw new AuthExcetion(ResultEnum.OPTION_ERROR);
         }
+    }
+
+    @Override
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
+        String token = CookieUtil.get(request, SellConfig.LOGIN_COOKIE_NAME);
+        if (StringUtils.isEmpty(token)) return;
+        redisService.del(token);
+        CookieUtil.delete(response, SellConfig.LOGIN_COOKIE_NAME);
     }
 }

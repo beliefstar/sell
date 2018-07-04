@@ -25,7 +25,6 @@ public class RedisConfig {
 
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-        factory.getConnection().openPipeline();
         return redisTemplate;
     }
 }

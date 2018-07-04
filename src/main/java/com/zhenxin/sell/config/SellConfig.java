@@ -16,6 +16,8 @@ import java.util.Map;
 @Getter
 public class SellConfig extends WebMvcConfigurerAdapter{
 
+    public static final String LOGIN_COOKIE_NAME = "token";
+
     @Autowired
     private ConfigProperties configProperties;
 

@@ -17,7 +17,8 @@ spring:
     password: 123456
 
 app:
-  server: http://localhost:${server.port}
+  server: http://zhenxin.tunnel.qydev.com
+
 img:
   server: http://119.29.214.244:8090
 #

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
@@ -42,6 +43,12 @@ public class SellerInfoController {
     public ResultVO login(SellerInfo info, HttpServletResponse response) {
         sellerInfoService.login(info, response);
         return ResultVOUtil.success();
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        sellerInfoService.logout(request, response);
+        return "logout";
     }
 }
 
