@@ -17,4 +17,8 @@ public interface RedisService {
     void del(Collection<String> key);
 
     Boolean expire(String key, Long miniTime);
+
+    Boolean lock(String key, Long value);
+
+    void unlock(String key, Long value);
 }

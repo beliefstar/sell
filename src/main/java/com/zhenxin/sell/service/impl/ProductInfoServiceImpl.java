@@ -1,5 +1,6 @@
 package com.zhenxin.sell.service.impl;
 
+import com.zhenxin.sell.constant.RedisConstant;
 import com.zhenxin.sell.dataobject.ProductInfo;
 import com.zhenxin.sell.dto.CartDTO;
 import com.zhenxin.sell.enums.ProductStatusEnum;
@@ -8,6 +9,7 @@ import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.repository.ProductInfoRepository;
 import com.zhenxin.sell.service.ProductInfoService;
 import com.zhenxin.sell.utils.KEYUtil;
+import com.zhenxin.sell.utils.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,10 +23,12 @@ import java.util.List;
 public class ProductInfoServiceImpl implements ProductInfoService {
 
     private final ProductInfoRepository repository;
+    private final RedisService redisService;
 
     @Autowired
-    public ProductInfoServiceImpl(ProductInfoRepository repository) {
+    public ProductInfoServiceImpl(ProductInfoRepository repository, RedisService redisService) {
         this.repository = repository;
+        this.redisService = redisService;
     }
 
     @Override
@@ -115,6 +119,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
         if (StringUtils.isEmpty(productInfo.getProductId())) {
             productInfo.setProductId(KEYUtil.gain());
         }
+        redisService.del(RedisConstant.CACHE_PRODUCTVOLIST_NAME);
         return repository.save(productInfo);
     }
 }

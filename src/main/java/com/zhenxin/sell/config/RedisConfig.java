@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+
 @Configuration
 public class RedisConfig {
 
@@ -27,4 +28,13 @@ public class RedisConfig {
         redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
         return redisTemplate;
     }
+
+//    @Bean
+//    public RedissonClient redisson() {
+//        Config config = new Config();
+//        config.useSingleServer()
+//                .setAddress("redis://119.29.214.244:6379")
+//                .setPassword("123456");
+//        return Redisson.create(config);
+//    }
 }

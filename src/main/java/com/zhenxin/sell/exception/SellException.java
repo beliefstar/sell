@@ -7,6 +7,10 @@ public class SellException extends RuntimeException {
     private static final long serialVersionUID = -1858808377709446557L;
     private Integer code;
 
+    public SellException(String messge) {
+        super(messge);
+    }
+
     public SellException(ResultEnum resultEnum) {
         super(resultEnum.getMessage());
         this.code = resultEnum.getCode();

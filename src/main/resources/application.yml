@@ -15,9 +15,11 @@ spring:
     host: 119.29.214.244
     port: 6379
     password: 123456
+    pool:
+      max-wait: 10000
 
 app:
-  server: http://zhenxin.tunnel.qydev.com
+  server: http://localhost:${server.port}
 
 img:
   server: http://119.29.214.244:8090

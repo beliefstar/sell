@@ -1,10 +1,12 @@
 package com.zhenxin.sell.service.impl;
 
+import com.zhenxin.sell.constant.RedisConstant;
 import com.zhenxin.sell.dataobject.ProductCategory;
 import com.zhenxin.sell.enums.ResultEnum;
 import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.repository.ProductCategoryRepository;
 import com.zhenxin.sell.service.CategoryService;
+import com.zhenxin.sell.utils.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +17,12 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
 
     private final ProductCategoryRepository repository;
+    private final RedisService redisService;
 
     @Autowired
-    public CategoryServiceImpl(ProductCategoryRepository repository) {
+    public CategoryServiceImpl(ProductCategoryRepository repository, RedisService redisService) {
         this.repository = repository;
+        this.redisService = redisService;
     }
 
     @Override
@@ -38,6 +42,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public ProductCategory save(ProductCategory category) {
+
+        redisService.del(RedisConstant.CACHE_PRODUCTVOLIST_NAME);
 
         List<ProductCategory> categoryList = categoryTypeCheck(category.getCategoryType());
 

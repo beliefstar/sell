@@ -4,21 +4,28 @@ import com.zhenxin.sell.enums.ResultEnum;
 import com.zhenxin.sell.exception.SellException;
 import com.zhenxin.sell.service.ProductKillService;
 import com.zhenxin.sell.utils.KEYUtil;
+import com.zhenxin.sell.utils.service.RedisService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.locks.ReentrantLock;
 
 @Service
 public class ProductKillServiceImpl implements ProductKillService {
 
+    private static final Long TIMEOUT = 10 * 1000L;//超时时间
+
+    @Autowired
+    private RedisService redisService;
+
+//    @Autowired
+//    private RedissonClient redisson;
 
     private static Map<String, String> product;
     private static ConcurrentHashMap<String, Integer> stock;
     private static Map<String, String> orders;
-    private static ReentrantLock lock = new ReentrantLock();
 
     static {
         product = new HashMap<>();
@@ -35,8 +42,14 @@ public class ProductKillServiceImpl implements ProductKillService {
 
     @Override
     public String killProduct(String productId) {
-        lock.lock();
+//        RLock rLock = redisson.getLock("anyLock");
+        Long timeout = System.currentTimeMillis() + 2000;
         try {
+            if (!redisService.lock(productId, timeout)) {
+                throw new SellException("【获取锁失败】");
+            }
+//            rLock.lock(10, TimeUnit.SECONDS);
+
             Integer s = stock.get(productId);
             if (s == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
@@ -54,7 +67,8 @@ public class ProductKillServiceImpl implements ProductKillService {
             }
             return "秒杀失败, 商品:" + product.get(productId) + ", 库存：" + stock.get(productId);
         } finally {
-            lock.unlock();
+            redisService.unlock(productId, timeout);
+//            rLock.unlock();
         }
     }
 }
