@@ -10,7 +10,6 @@ import com.zhenxin.sell.dataobject.ProductInfo;
 import com.zhenxin.sell.service.CategoryService;
 import com.zhenxin.sell.service.ProductInfoService;
 import com.zhenxin.sell.utils.ResultVOUtil;
-import com.zhenxin.sell.utils.service.RedisService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,13 +27,11 @@ public class BuyerProductController {
 
     private final CategoryService categoryService;
     private final ProductInfoService productInfoService;
-    private final RedisService redisService;
 
     @Autowired
-    public BuyerProductController(CategoryService categoryService, ProductInfoService productInfoService, RedisService redisService) {
+    public BuyerProductController(CategoryService categoryService, ProductInfoService productInfoService) {
         this.categoryService = categoryService;
         this.productInfoService = productInfoService;
-        this.redisService = redisService;
     }
 
     @GetMapping("/list")
