@@ -18,7 +18,7 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 @Service
 @Slf4j
@@ -40,16 +40,11 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         }
 
         String pwd = info.getPassword();
-        try {
-            String nPwd = DigestUtils.md5DigestAsHex(pwd.getBytes("UTF-8"));
-            info.setPassword(nPwd);
-            info.setSellerId(KEYUtil.gain());
-            info.setOpenid(KEYUtil.gain());
-            sellerInfoRepository.save(info);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            throw new AuthExcetion(ResultEnum.OPTION_ERROR);
-        }
+        String nPwd = DigestUtils.md5DigestAsHex(pwd.getBytes(StandardCharsets.UTF_8));
+        info.setPassword(nPwd);
+        info.setSellerId(KEYUtil.gain());
+        info.setOpenid(KEYUtil.gain());
+        sellerInfoRepository.save(info);
     }
 
     @Override
@@ -61,27 +56,21 @@ public class SellerInfoServiceImpl implements SellerInfoService {
         if (sellerInfo == null) {
             throw new AuthExcetion(ResultEnum.LOGIN_NOT_EXIST);
         }
-        try {
-            String pwd = DigestUtils.md5DigestAsHex(info.getPassword().getBytes("UTF-8"));
-            if (!sellerInfo.getPassword().equals(pwd)) {
-                throw new AuthExcetion(ResultEnum.LOGIN_FAIL);
-            }
-
-            String token = RedisConstant.TOKEN_PREFIX;
-            Integer expire = RedisConstant.EXPIRE;
-
-            String key = String.format(token, KEYUtil.gain());
-
-            log.info("【redis】key: {}", key);
-
-            redisService.set(key, info, expire.longValue());
-
-            CookieUtil.setCookie(response, SellConfig.LOGIN_COOKIE_NAME, key, expire);
-
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            throw new AuthExcetion(ResultEnum.OPTION_ERROR);
+        String pwd = DigestUtils.md5DigestAsHex(info.getPassword().getBytes(StandardCharsets.UTF_8));
+        if (!sellerInfo.getPassword().equals(pwd)) {
+            throw new AuthExcetion(ResultEnum.LOGIN_FAIL);
         }
+
+        String token = RedisConstant.TOKEN_PREFIX;
+        Integer expire = RedisConstant.EXPIRE;
+
+        String key = String.format(token, KEYUtil.gain());
+
+        log.info("【redis】key: {}", key);
+
+        redisService.set(key, info, expire.longValue());
+
+        CookieUtil.setCookie(response, SellConfig.LOGIN_COOKIE_NAME, key, expire);
     }
 
     @Override
